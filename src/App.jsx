@@ -29,7 +29,8 @@ function App() {
         correct_answer: res.correct_answer,
         question: res.question,
         answers: shuffleQuestions([...res.incorrect_answers, res.correct_answer]),
-        id: nanoid() }))
+        id: nanoid(),
+        selected: '' }))
       )
     }
   },[responseFromAPI])
@@ -67,7 +68,7 @@ function shuffleQuestions(array){
       {
         gameIsActive ? 
           <QuizzComponent>
-            {questions.map(el=> <Question key={el.question} question={el} />)}
+            {questions.map(el=> <Question key={el.question} questionToRender={el} />)}
           </QuizzComponent> 
           :
           <NewGameComponent handleNewGameButtonClick={handleNewGameButtonClick}/>

@@ -6,7 +6,7 @@ export default function QuizzComponent({children, ...rest}){
         <div className='quizz-main-container'>
             <div className="quizz-list">
                 {children}
-                
+                <button>Check answers</button>
             </div>
         </div>
     )

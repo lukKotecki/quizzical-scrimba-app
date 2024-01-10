@@ -1,23 +1,29 @@
 import React from 'react'
 import {decode} from 'html-entities';
 
-export default function Question({question}){
+export default function Question({questionToRender}){
 
+    const [question, setQuestion]= React.useState(questionToRender)
 
-    function handleSelect(idOfElement,event){
-        console.log(event)
+    function handleSelect(idOfElement){
+        console.log(idOfElement)
+        setQuestion(prev=> ({...prev, selected:idOfElement}))
     }
-
 //console.log(question)
 
     return(
         <div className='question-main-container'>
             <h2>{decode(question.question)}</h2>
+
             <form className='question-form' id={question.id}>
                 {question.answers.map((answer,index)=> 
                 <div  key={question.id+index}>
                     <input type='radio' name={question.id}  id={question.id+index} value={answer}/>
-                    <label onClick={(event)=> handleSelect(answer, event)} className='form-label' htmlFor={question.id+index} >{decode(answer)}</label>
+                    <label onClick={()=> handleSelect(answer)} 
+                        className={'form-label '+ (question.selected === answer && 'active-answer') }
+                        htmlFor={question.id+index} >
+                            {decode(answer)}
+                    </label>
                 </div>
                 )}
             </form>

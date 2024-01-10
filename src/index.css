@@ -23,7 +23,7 @@ body {
   background-image: url('assets/quizz-background2.png');
   background-size: cover;
   width: 550px;
-  height: 550px;
+  min-height: 650px;
   margin: 20px auto;
   display: flex;
   justify-content: center;
@@ -94,7 +94,7 @@ body {
 }
 
 .question-main-container form input{
-  /* display:none; */
+  display:none;
 }
 .form-label{
   background-color: #fffdf1;
@@ -110,15 +110,16 @@ body {
   font-weight: bold;
 }
 .form-label:hover{
-  background-color: #ffdcd2;
+  /* background-color: #ffdcd2; */
+  box-shadow: inset 0 0 2px;
 }
 
 .form-label:active{
   background-color: #fc6b42;
 } 
 .active-answer{
-  background-color: #dcdbda;
-  border: none;
+  background-color: #fbc289;
+  /* border-color: #fbc289; */
   /* color: #fff9e2; */
 }
  
