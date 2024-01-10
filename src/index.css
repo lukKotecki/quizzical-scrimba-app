@@ -2,7 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
- 
+  background-color: #f5f4ed;
 }
 
 a {
@@ -10,12 +10,115 @@ a {
 }
 a:hover {
   color: #535bf2;
+  color: #f7be1c;
+  color: #fc6b42;
+  color: #fff9e2;
 }
 
 body {
   margin: 0;
 }
 
-.container{
-  background-color: rebeccapurple;
+.main-container{
+  background-image: url('assets/quizz-background2.png');
+  background-size: cover;
+  width: 550px;
+  height: 550px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
 }
+
+.new-game-container{
+  text-align: center;
+  color: #240b04;
+}
+.new-game-container h1{
+  font-family: 'Lemon', serif;
+  color: #fc6b42;
+  text-shadow: 0 0 1px black;
+  font-size: 2.2rem;
+}
+
+
+.new-game-container button{
+  background-color: #fc6b42;
+  border:none;
+  border-radius: 10px;
+  padding: .5em 1em;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff9e2;
+  transition: .6s;
+  text-shadow: 0 0 2px black;
+}
+.new-game-container button:hover{
+  background-color: #f7be1c;
+  cursor: pointer;
+  transition: .1s;
+}
+.new-game-container button:active{
+  box-shadow: inset 1px 1px 4px black;
+}
+
+
+
+
+
+.quizz-list {
+  width: 530px;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.question-main-container {
+  border-bottom: solid #a8311066 2px;
+  margin: .3em;
+  padding: .3em .1em;
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+}
+
+.question-main-container h2{
+  font-size: 1rem;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  margin: 0 .5em;
+}
+
+.question-main-container form{
+  display: flex; 
+}
+
+.question-main-container form input{
+  /* display:none; */
+}
+.form-label{
+  background-color: #fffdf1;
+  border: solid 2px #fc6b42;
+  margin: .5em;
+  padding: .3em .6em;
+  border-radius: 10px;
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+}
+.form-label:hover{
+  background-color: #ffdcd2;
+}
+
+.form-label:active{
+  background-color: #fc6b42;
+} 
+.active-answer{
+  background-color: #dcdbda;
+  border: none;
+  /* color: #fff9e2; */
+}
+ 
