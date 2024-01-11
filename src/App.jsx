@@ -1,27 +1,24 @@
 import React from 'react'
 import NewGameComponent from './components/NewGameComponent'
-import QuizzComponent from './components/QuizzComponent'
-import Question from './components/Question'
+import QuizzComponent from './components/QuizzComponent' 
 import {nanoid } from 'nanoid'
 
 function App() { 
   const [gameIsActive, setGameIsActive] = React.useState(false)
   const [questions, setQuestions] = React.useState([])
   const [responseFromAPI, setResponseFromAPI] = React.useState([])
+  const [showAnswers, setShowAnswers] = React.useState(false)
+  const [points, setPoints] = React.useState(0)
+
   function toggleGameState(){
     setGameIsActive(prev =>!prev)
-  }
-  function handleNewGameButtonClick(){
-    getQuestionsFromApi()
-  }
+  } 
 
-
-
-    React.useEffect(()=>{
-        // console.log(questions)
-      toggleGameState()
-      },[questions])
-      
+  function handleSelect(selectedAnswer,idOfQuestion){
+    setQuestions(quest=> quest.map(prev => prev.id ===idOfQuestion ?
+        {...prev, selected:selectedAnswer}:
+        {...prev}  ) )
+}
 
   React.useEffect(() =>{
     if(responseFromAPI.length){
@@ -31,7 +28,9 @@ function App() {
         answers: shuffleQuestions([...res.incorrect_answers, res.correct_answer]),
         id: nanoid(),
         selected: '' }))
+        
       )
+      setGameIsActive(true)
     }
   },[responseFromAPI])
 
@@ -62,16 +61,38 @@ function shuffleQuestions(array){
   return array
 }
 
+function handleCheckButton(){
+  const points = questions.reduce((accum,curr)=> accum += curr.correct_answer===curr.selected ? 1: 0 ,0)
+  console.log(points)
+  setShowAnswers(true)
+  checkPoints()
+}
+
+function handleReloadButton(){
+  getQuestionsFromApi();
+  setShowAnswers(false)
+}
+
+function checkPoints(){
+  let pointsToAdd =0
+  questions.forEach(question =>question.selected === question.correct_answer ? pointsToAdd++ : pointsToAdd)
+  setPoints(prev => prev + pointsToAdd)
+}
+
   return (
     <>
       <div className='main-container'>
       {
         gameIsActive ? 
-          <QuizzComponent>
-            {questions.map(el=> <Question key={el.question} questionToRender={el} />)}
-          </QuizzComponent> 
+          <QuizzComponent questions={questions} 
+                          handleSelect={handleSelect} 
+                          handleCheckButton={handleCheckButton}
+                          showAnswers={showAnswers}
+                          handleReloadButton={handleReloadButton}
+                          points={points}
+                          />  
           :
-          <NewGameComponent handleNewGameButtonClick={handleNewGameButtonClick}/>
+          <NewGameComponent handleNewGameButtonClick={getQuestionsFromApi}/>
       }
       </div>
     </>
