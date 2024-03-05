@@ -9,4 +9,4 @@ Technologies:
 React, Rest API
 
 
-![calculator](https://github.com/lukKotecki/quizzical-scrimba-app/blob/master/public/'Zrzut ekranu 2024-03-05 114324.png')
+![calculator](https://github.com/lukKotecki/quizzical-scrimba-app/blob/master/public/Zrzut%20ekranu%202024-03-05%20114324.png)
