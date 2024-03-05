@@ -1,8 +1,12 @@
-# React + Vite
+Quizzical app
+Application was made as a challenge to summary section of Scrimba course. It connects to opentdb.com API.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Try it:
+[https://singular-bienenstitch-124d00.netlify.app/](https://imaginative-kashata-857b02.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technologies:
+React, Rest API
+
+
+![calculator](https://github.com/lukKotecki/quizzical-scrimba-app/blob/master/public/'Zrzut ekranu 2024-03-05 114324.png')
